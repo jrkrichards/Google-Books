@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="38px" height="45px" viewBox="0 0 38 45" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Group 4</title>
+    <g id="logo-concepts-II" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="wavy-backdrop-copy" transform="translate(-292.000000, -275.000000)" stroke-width="4">
+            <g id="Group-4" transform="translate(294.639766, 276.000000)">
+                <path d="M32.7204688,19.4351913 C30.6791594,16.1621546 27.1554658,14 23.1507495,14 C16.8379798,14 11.7204688,19.372583 11.7204688,26" id="Path" stroke="#699292" stroke-linejoin="round" transform="translate(22.220469, 20.000000) scale(-1, -1) rotate(180.000000) translate(-22.220469, -20.000000) "></path>
+                <line x1="21.3602344" y1="0" x2="21" y2="19.4809837" id="Line-Copy-2" stroke="#8AC2AE"></line>
+                <path d="M21,24.4351913 C18.9586906,21.1621546 15.434997,19 11.4302807,19 C5.117511,19 0,24.372583 0,31" id="Path" stroke="#8AC2AE" stroke-linejoin="round" transform="translate(10.500000, 25.000000) rotate(180.000000) translate(-10.500000, -25.000000) "></path>
+                <line x1="11.7204688" y1="25.5190163" x2="11.2204688" y2="43.2803149" id="Line-Copy-2" stroke="#699292" transform="translate(11.470469, 34.399666) scale(-1, -1) translate(-11.470469, -34.399666) "></line>
+            </g>
+        </g>
+    </g>
+</svg>
