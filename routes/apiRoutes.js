@@ -1,5 +1,4 @@
-const router= require('express').Router();
-const Books = require("../models/booksSchema")
+const router = require('express').Router();
 const { 
     bookGetAll,
     postBook,
@@ -10,6 +9,6 @@ const {
 
 router.route("/book/").get(bookGetAll).post(postBook);
 
-router.route("/book/:id").get(bookFindOne).patch(bookUpdateOne).delete(bookDeleteOne);
+router.route("/book/:id").get(bookFindOne).delete(bookDeleteOne);
 
 module.exports = router;

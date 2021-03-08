@@ -5,7 +5,7 @@ const { mongo } = require("mongoose");
 module.exports = {
     bookGetAll: async (req, res) => {
         try {
-          const allBlogs = await Blog.find();
+          const allBlogs = await Books.find();
           res.json(allBlogs);
         } catch (err) {
           res.send(err);
@@ -14,7 +14,7 @@ module.exports = {
     
     bookFindOne: async (req, res) => {
         try {
-            const foundBlogPost = await Blog.findById(req.params.id);
+            const foundBlogPost = await Books.findById(req.params.id);
             res.send(foundBlogPost);
         } catch (err) {
             res.send(err);
@@ -23,14 +23,14 @@ module.exports = {
 
     postBook: async (req, res) => {
         try {
-            const newBlogPost = new Blog({
-            displayName: req.body.displayName,
+            const newBook = new Books({
             title: req.body.title,
-            text: req.body.text,
-            category: req.body.category,
-            zipCode: req.body.zipCode
+            authors: req.body.authors,
+            description: req.body.description,
+            image: req.body.image,
+            link: req.body.link
             });
-            res.json(await newBlogPost.save());
+            res.json(await newBook.save());
         } catch (err) {
             res.send(err);
         }
@@ -38,7 +38,7 @@ module.exports = {
 
     bookDeleteOne: async (req, res) => {
         try {
-            res.json(await Blog.findByIdAndDelete(req.params.id));
+            res.json(await Books.findByIdAndDelete(req.params.id));
         } catch (err) {
             res.send(err);
         }

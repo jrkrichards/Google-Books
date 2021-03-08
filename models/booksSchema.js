@@ -24,12 +24,12 @@ const BooksSchema = new Schema({
       required: true,
     },
 
-    zipCode: {
+    link: {
       type: String, 
       required: true 
     },
 });
 
-const Books = mongoose.model("book", BlogSchema);
+const Books = mongoose.model("book", BooksSchema);
 
 module.exports = Books;
