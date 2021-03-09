@@ -1,6 +1,10 @@
 import axios from "axios";
 
 export default {
+  // Search for books
+  searchBooks: function() {
+    return axios.get("")
+  },
   // Gets all books
   getBooks: function() {
     return axios.get("/book/");
