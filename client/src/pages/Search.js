@@ -2,8 +2,8 @@ import React, {useState, useEffect} from 'react'
 import { Col, Row, Container } from "../components/Grid";
 import Jumbotron from "../components/Jumbotron";
 import Wrapper from '../components/Wrapper';
-import {Input, TextArea, FormBtn} from '../components/Form'
-import CardContainer from '../components/CardContainer'
+import SearchCard from '../components/SearchCard'
+import BooksCard from '../components/BooksCard';
 
 const Search = () => {
     return (
@@ -19,15 +19,24 @@ const Search = () => {
                 </Row>
                 <Row>
                     <Col size='md-12'>
-                        <CardContainer>
-                        <h6 className="text-left">Book Search</h6>
-                        <form>
-                            <Input />
-                            <FormBtn>
-                                Search
-                            </FormBtn>
-                        </form>
-                        </CardContainer>
+                        <div className="py-3">
+                            <SearchCard 
+                                title="Book Search"
+                                subtitle="Book"
+                                btn="Search"
+                                inputId="searchInput"
+                                btnId="searchBtn"
+                            /> 
+                        </div>             
+                    </Col>
+                </Row>
+                <Row>
+                    <Col size='md-12'>
+                        <BooksCard
+                            title="Results"
+                            bookTitle="Placeholder"
+                            authors="Author"
+                        />
                     </Col>
                 </Row>
             </Container>
