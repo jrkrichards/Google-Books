@@ -84,7 +84,7 @@ const Search = () => {
                                 <BooksCard
                                     bookTitle={book.volumeInfo.title}
                                     authors={book.volumeInfo.authors}
-                                    imgSrc={book.volumeInfo.imageLinks.thumbnail || "https://via.placeholder.com/200"}
+                                    imgSrc="https://via.placeholder.com/200"
                                     description={book.volumeInfo.description}
                                 />
                             ))}
