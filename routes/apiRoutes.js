@@ -7,8 +7,8 @@ const {
     bookUpdateOne, 
 } = require("../controllers/googleBooks")
 
-router.route("/book/").get(bookGetAll).post(postBook);
+router.route("/api/books/").get(bookGetAll).post(postBook);
 
-router.route("/book/:id").get(bookFindOne).delete(bookDeleteOne);
+router.route("/api/books/:id").get(bookFindOne).delete(bookDeleteOne);
 
 module.exports = router;
