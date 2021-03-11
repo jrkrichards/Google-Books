@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState} from 'react'
 import { Col, Row, Container } from "../components/Grid";
 import Jumbotron from "../components/Jumbotron";
 import Wrapper from '../components/Wrapper';
@@ -20,20 +20,22 @@ const Search = () => {
             }
         }
     ]);
-    
-    // useEffect(() => {
-    //     getBooks()
-    // }, []);
 
-    const searchBooks = async(query) => {
+    const searchBooks = async (query) => {
         API.searchBooks(query)
         .then(res => setBooks(res.data.items))
         .catch(err => console.log(err));
     };
 
+    const saveBook = async (body) => {
+        API.saveBook(body)
+        .then(alert("Book Saved"))
+        .catch(err => console.log(err));
+    };
+
     // When the form is submitted, use the API.saveBook method to save the book data
     // Then reload books from the database
-  const submitSearch = async (e) => {
+    const submitSearch = async (e) => {
       try {
         e.preventDefault();
         const query = await document.querySelector('#searchInput').value
@@ -43,14 +45,24 @@ const Search = () => {
       }
     };
 
-    // const getBooks = async() => {
-    //     API.getBooks()
-    //     .then(res => setBooks(res.data))
-    //     .catch(err => console.log(err))
-    //     console.log(books)
-    // }
-
-
+    // event handler for when we click the save button
+    const saveBookClick = async (e) => {
+        try {
+          e.preventDefault();
+          const targetBook = await books.filter(book => book.id === e.target.id)
+          const body = {
+            "title": await targetBook[0].volumeInfo.title,
+            "authors": await targetBook[0].volumeInfo.authors,
+            "description": await targetBook[0].volumeInfo.description,
+            "image": "https://via.placeholder.com/200",
+            "link": await targetBook[0].volumeInfo.infoLink
+          };
+          saveBook(body)
+        //   saveBook(body)
+        } catch (error) {
+          console.log(error)
+        }
+    };
 
     return (
         <Wrapper>
@@ -69,9 +81,9 @@ const Search = () => {
                             <SearchCard 
                                 title="Book Search"
                                 subtitle="Book"
-                                btn="Search"
+                                buttonName="Search"
                                 inputId="searchInput"
-                                btnId="searchBtn"
+                                buttonId="searchBtn"
                                 onClick={submitSearch}
                             /> 
                         </div>             
@@ -86,6 +98,11 @@ const Search = () => {
                                     authors={book.volumeInfo.authors}
                                     imgSrc="https://via.placeholder.com/200"
                                     description={book.volumeInfo.description}
+                                    viewLink={book.volumeInfo.infoLink}
+                                    btn1Name="View"
+                                    btn2Name="Save"
+                                    id={book.id}
+                                    onClick={saveBookClick}
                                 />
                             ))}
                         </ResultsCard>

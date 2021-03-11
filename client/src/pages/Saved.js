@@ -2,12 +2,13 @@ import React, {useState, useEffect} from 'react'
 import { Col, Row, Container } from "../components/Grid";
 import Jumbotron from "../components/Jumbotron";
 import Wrapper from '../components/Wrapper';
-import BooksCard from "../components/ResultsCard"
+import ResultsCard from '../components/ResultsCard'
+import BooksCard from "../components/BooksCard"
 import API from "../utils/API"
 
 const Saved = () => {
     // Setting up the initial state for books
-    const [books, setBooks] = useState([]);
+    const [savedBooks, setSavedBooks] = useState([]);
     
     useEffect(() => {
         getBooks()
@@ -15,10 +16,25 @@ const Saved = () => {
 
     const getBooks = async() => {
         API.getBooks()
-        .then(res => setBooks(res.data))
+        .then(res => setSavedBooks(res.data))
         .catch(err => console.log(err))
-        console.log(books)
     }
+
+    const deleteBook = async(id) => {
+        API.deleteBook(id)
+        .then(getBooks())
+        .catch(err => console.log(err))
+    }
+
+    const deleteSavedBooks = async (e) => {
+        try {
+            e.preventDefault();
+            const id = await e.target.id
+            deleteBook(id)
+        } catch (err) {
+            console.log(err)
+        }
+    } 
 
     return (
         <Wrapper>
@@ -33,11 +49,21 @@ const Saved = () => {
                 </Row>
                 <Row>
                     <Col size='md-12'>
-                        <BooksCard
-                            title="Results"
-                            bookTitle="Placeholder"
-                            authors="Author"
-                        />
+                        <ResultsCard>
+                            {savedBooks.map((book) => (
+                                <BooksCard
+                                    bookTitle={book.title}
+                                    authors={book.authors}
+                                    imgSrc={book.image}
+                                    description={book.description}
+                                    viewLink={book.link}
+                                    btn1Name="View"
+                                    btn2Name="Delete"
+                                    id={book._id}
+                                    onClick={deleteSavedBooks}
+                                />
+                            ))}
+                        </ResultsCard>
                     </Col>
                 </Row>
             </Container>
