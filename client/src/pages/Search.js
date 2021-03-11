@@ -9,17 +9,7 @@ import API from '../utils/API'
 
 const Search = () => {
     // Setting up the initial state for books
-    const [books, setBooks] = useState([{
-        volumeInfo: {
-            title:"Placeholder",
-            authors:"Author Placeholder",
-            imageLinks: {
-                thumbnail:"https://via.placeholder.com/200"
-            },
-            description: "This is a placeholder description"
-            }
-        }
-    ]);
+    const [books, setBooks] = useState([]);
 
     const searchBooks = async (query) => {
         API.searchBooks(query)
@@ -92,7 +82,8 @@ const Search = () => {
                 <Row>
                     <Col size='md-12'>
                         <ResultsCard>
-                            {books.map((book) => (
+                            {books.length > 0
+                            ? books.map((book) => (
                                 <BooksCard
                                     bookTitle={book.volumeInfo.title}
                                     authors={book.volumeInfo.authors}
@@ -104,7 +95,8 @@ const Search = () => {
                                     id={book.id}
                                     onClick={saveBookClick}
                                 />
-                            ))}
+                            ))
+                            : <h1>Search for a Book</h1>}
                         </ResultsCard>
                     </Col>
                 </Row>

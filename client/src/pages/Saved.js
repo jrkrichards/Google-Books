@@ -50,7 +50,8 @@ const Saved = () => {
                 <Row>
                     <Col size='md-12'>
                         <ResultsCard>
-                            {savedBooks.map((book) => (
+                            {savedBooks.length > 0 ?
+                            savedBooks.map((book) => (
                                 <BooksCard
                                     bookTitle={book.title}
                                     authors={book.authors}
@@ -62,7 +63,8 @@ const Saved = () => {
                                     id={book._id}
                                     onClick={deleteSavedBooks}
                                 />
-                            ))}
+                            ))
+                            : <h3>No Books Saved</h3>}
                         </ResultsCard>
                     </Col>
                 </Row>

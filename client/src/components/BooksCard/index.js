@@ -5,12 +5,12 @@ import {FormBtn} from '../Form'
 
 function BooksCard(props) {
   return (
-      <div className="card bg-light w-100">
+      <div className="card my-2 bg-light w-100">
           <div className="card-body">
             <Row>
                 <Col size="md-9">
                     <h5 className="text-left">{props.bookTitle}</h5>
-                    <p className="text-left">{props.authors}</p>
+                    <p className="text-left">{props.authors.map}</p>
                 </Col>
                 <Col size="md-3">
                     <FormBtn
