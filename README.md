@@ -1,29 +1,54 @@
-# Create React Express App
+# Google Books
 
-## About This Boilerplate
+## Description
 
-This setup allows for a Node/Express/React app which can be easily deployed to Heroku.
+This is a MERN full stack application that allows the user to search for books using the Google Books API, view the book, save teh books they like, and delete books from their bookshelf if they no longer want them.
 
-The front-end React app will auto-reload as it's updated via webpack dev server, and the backend Express app will auto-reload independently with nodemon.
+This application utilizes the [**Google Books API**](https://developers.google.com/books) to generate random employees.
 
-## Starting the app locally
+## Table of Contents
 
-Start by installing front and backend dependencies. While in this directory, run the following command:
+- [Installation](#Installation)
+- [Usage](#Usage)
+- [License](#License)
+- [Contributing](#Contributing)
+- [Tests](#Tests)
+- [Questions](#Questions)
 
-```
-npm install
-```
+## Installation
 
-This should install node modules within the server and the client folder.
+To install this application locally clone the repository located at the Github profile in the [Questions](#Questions) section. Additionally, you will need to install the following:
 
-After both installations complete, run the following command in your terminal:
+1. [**mongodb**](https://www.mongodb.com/)
+2. [**express**](https://expressjs.com/)
+3. [**react**](https://reactjs.org/)
+4. [**node**](https://nodejs.org/en/)
+5. [**mongoose**](https://mongoosejs.com/)
+6. [**bootstrap**](https://getbootstrap.com/)
 
-```
-npm start
-```
+Once all of these are installed you will be able to use the application from the command line using npm run start:dev.
 
-Your app should now be running on <http://localhost:3000>. The Express server should intercept any AJAX requests from the client.
+## Usage
 
-## Deployment (Heroku)
+In this current release users are only able to:
 
-To deploy, simply add and commit your changes, and push to Heroku. As is, the NPM scripts should take care of the rest.
+1. Search for books using the google api.
+2. View books.
+3. Save books for later.
+4. Delete books from the bookshelf
+
+## License
+
+[![License](https://img.shields.io/static/v1?label=License&message=MIT&color=yellow)](https://choosealicense.com/licenses/mit/)
+
+## Contributing
+
+This Google Books App was created by [**Jason Richards**](https://github.com/jrkrichards).
+
+## Tests
+
+There are no tests available in this release
+
+## Questions
+
+Github: https://github.com/jrkrichards
