@@ -14,10 +14,13 @@ function BooksCard(props) {
                 </Col>
                 <Col size="md-3">
                     <FormBtn
-                        children="Save"
+                        children={props.btn2Name}
+                        onClick={props.onClick}
+                        id={props.id}
                     />
                     <FormBtn
-                        children="View"
+                        children={props.btn1Name}
+                        link={props.viewLink}
                     />
                 </Col>
                 </Row>

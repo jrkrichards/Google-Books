@@ -20,8 +20,8 @@ export function TextArea(props) {
 
 export function FormBtn(props) {
   return (
-    <button {...props} style={{ float: "right", marginBottom: 10 }} className="btn btn-primary mx-1" id={props.btnId}>
+    <a {...props} style={{ float: "right", marginBottom: 10 }} className="btn btn-primary mx-1" id={props.id} href={props.link} target="_blank" rel="noopener noreferrer">
       {props.children}
-    </button>
+    </a>
   );
 }

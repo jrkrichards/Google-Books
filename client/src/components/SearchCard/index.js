@@ -9,8 +9,8 @@ function SearchCard(props) {
         <h5 className="text-left">{props.title}</h5>
         <p className="text-left">{props.subtitle}</p>
         <Input id={props.inputId} />
-        <FormBtn id={props.btnId} onClick={props.onClick}>
-          {props.btn}
+        <FormBtn id={props.buttonId} onClick={props.onClick}>
+          {props.buttonName}
         </FormBtn>
       </div>
     </div>
